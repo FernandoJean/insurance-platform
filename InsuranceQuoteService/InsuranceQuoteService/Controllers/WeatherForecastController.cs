@@ -18,6 +18,9 @@ namespace InsuranceQuoteService.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Serviço de cotações de seguro
+        /// </summary>
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InsuranceQuoteService.Presentation</name>
+    </assembly>
+    <members>
+        <member name="M:InsuranceQuoteService.Controllers.WeatherForecastController.Get">
+            <summary>
+            Serviço de cotações de seguro
+            </summary>
+        </member>
+    </members>
+</doc>
