@@ -11,7 +11,7 @@ namespace InsuranceContractService.Application.Exceptions
     public sealed class ProposalNotApprovedException(Guid id) : ValidationException(string.Format(ExceptionMessages.ProposalNotApprovedException, id))
     {
         [JsonPropertyName("id")]
-        public Guid Id { get; }
+        public Guid Id { get; } = id;
 
         public static string SerializeToJson(ProposalNotApprovedException exception)
         {
