@@ -5,14 +5,9 @@ using InsuranceQuoteService.Domain.Models;
 
 namespace InsuranceQuoteService.Application.UseCases
 {
-    public sealed class ListProposalsUseCase : IListProposalsUseCase
+    public sealed class ListProposalsUseCase(IProposalRepository proposalRepository) : IListProposalsUseCase
     {
-        private readonly IProposalRepository _proposalRepository;
-
-        public ListProposalsUseCase(IProposalRepository proposalRepository)
-        {
-            _proposalRepository = proposalRepository;
-        }
+        private readonly IProposalRepository _proposalRepository = proposalRepository;
 
         public async Task<PageModel<ProposalResponseDto>> ExecuteAsync(Pagination pagination, CancellationToken ctx)
         {

@@ -1,6 +1,5 @@
 ﻿using InsuranceQuoteService.Application.Interfaces;
 using InsuranceQuoteService.Domain.Dtos.Proposal;
-using InsuranceQuoteService.Domain.Entities;
 using InsuranceQuoteService.Domain.Enums;
 using InsuranceQuoteService.Domain.Models;
 using Microsoft.AspNetCore.Mvc;

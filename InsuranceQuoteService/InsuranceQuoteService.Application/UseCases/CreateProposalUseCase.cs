@@ -6,14 +6,9 @@ using InsuranceQuoteService.Domain.Interfaces;
 
 namespace InsuranceQuoteService.Application.UseCases
 {
-    public sealed class CreateProposalUseCase : ICreateProposalUseCase
+    public sealed class CreateProposalUseCase(IProposalRepository proposalRepository) : ICreateProposalUseCase
     {
-        private readonly IProposalRepository _proposalRepository;
-
-        public CreateProposalUseCase(IProposalRepository proposalRepository)
-        {
-            _proposalRepository = proposalRepository;
-        }
+        private readonly IProposalRepository _proposalRepository = proposalRepository;
 
         public async Task<ProposalResponseDto> ExecuteAsync(CreateProposalRequestDto createProposalRequestDto, CancellationToken ctx)
         {
