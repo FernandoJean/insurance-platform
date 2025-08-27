@@ -13,48 +13,48 @@ namespace InsuranceQuoteService.Infrastructure.Persistence
         {
             const string query = @"INSERT INTO proposals (id, customer_name, insurance_type, coverage_amount, status, created_at) VALUES (@Id, @CustomerName, @InsuranceType, @CoverageAmount, @Status, @CreatedAt);";
 
-            var parameter = new DynamicParameters();
-            parameter.Add("@Id", proposal.Id, DbType.Guid);
-            parameter.Add("@CustomerName", proposal.CustomerName, DbType.String);
-            parameter.Add("@InsuranceType", proposal.InsuranceType.ToString(), DbType.String);
-            parameter.Add("@CoverageAmount", proposal.CoverageAmount, DbType.Decimal);
-            parameter.Add("@Status", proposal.Status.ToString(), DbType.String);
-            parameter.Add("@CreatedAt", proposal.CreatedAt, DbType.DateTime);
+            var parameters = new DynamicParameters();
+            parameters.Add("@Id", proposal.Id, DbType.Guid);
+            parameters.Add("@CustomerName", proposal.CustomerName, DbType.String);
+            parameters.Add("@InsuranceType", proposal.InsuranceType.ToString(), DbType.String);
+            parameters.Add("@CoverageAmount", proposal.CoverageAmount, DbType.Decimal);
+            parameters.Add("@Status", proposal.Status.ToString(), DbType.String);
+            parameters.Add("@CreatedAt", proposal.CreatedAt, DbType.DateTime);
 
-            await ExecuteAsync(query, parameter, ctx);
+            await ExecuteAsync(query, parameters, ctx);
         }
 
         public async Task<Proposal?> GetByIdAsync(Guid id, CancellationToken ctx)
         {
             const string query = "SELECT id AS Id, customer_name AS CustomerName, insurance_type AS InsuranceType, coverage_amount AS CoverageAmount, status AS Status, created_at AS CreatedAt, updated_at AS UpdatedAt FROM proposals WHERE id = @Id";
 
-            var parameter = new DynamicParameters();
-            parameter.Add("@Id", id, DbType.Guid);
+            var parameters = new DynamicParameters();
+            parameters.Add("@Id", id, DbType.Guid);
 
-            return await QuerySingleOrDefaultAsync<Proposal?>(query, parameter, ctx);
+            return await QuerySingleOrDefaultAsync<Proposal?>(query, parameters, ctx);
         }
 
         public async Task<(long, IEnumerable<Proposal>)> ListAsync(Pagination pagination, CancellationToken ctx)
         {
             const string query = @"SELECT Count(*) FROM proposals; SELECT id AS Id, customer_name AS CustomerName, insurance_type AS InsuranceType, coverage_amount AS CoverageAmount, status AS Status, created_at AS CreatedAt, updated_at AS UpdatedAt FROM proposals ORDER BY created_at DESC LIMIT @PageSize OFFSET @Offset";
 
-            var parameter = new DynamicParameters();
-            parameter.Add("@Offset", pagination.PageSize * pagination.PageIndex);
-            parameter.Add("@PageSize", pagination.PageSize);
+            var parameters = new DynamicParameters();
+            parameters.Add("@Offset", pagination.PageSize * pagination.PageIndex);
+            parameters.Add("@PageSize", pagination.PageSize);
 
-            return await ExecuteMultiReaderAsync<Proposal>(query, parameter, ctx);
+            return await ExecuteMultiReaderAsync<Proposal>(query, parameters, ctx);
         }
 
         public async Task<int> UpdateStatusAsync(Guid id, ProposalStatus newStatus, CancellationToken ctx)
         {
             const string query = @"UPDATE proposals SET status = @Status, updated_at = @UpdatedAt WHERE id = @Id";
 
-            var parameter = new DynamicParameters();
-            parameter.Add("@Id", id, DbType.Guid);
-            parameter.Add("@Status", newStatus.ToString(), DbType.String);
-            parameter.Add("@UpdatedAt", DateTime.UtcNow, DbType.DateTime);
+            var parameters = new DynamicParameters();
+            parameters.Add("@Id", id, DbType.Guid);
+            parameters.Add("@Status", newStatus.ToString(), DbType.String);
+            parameters.Add("@UpdatedAt", DateTime.UtcNow, DbType.DateTime);
 
-            return await ExecuteAsyncWithRowCount(query, parameter, ctx);
+            return await ExecuteAsyncWithRowCount(query, parameters, ctx);
         }
     }
 }

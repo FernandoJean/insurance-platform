@@ -1,11 +1,11 @@
-﻿using InsuranceQuoteService.Domain.Enums;
+﻿using InsuranceContractService.Domain.Enums;
 
-namespace InsuranceQuoteService.Domain.Dtos.Proposal
+namespace InsuranceContractService.Domain.Dtos.Proposal
 {
-    public sealed class ProposalResponseDto
+    public sealed class ProposalContractDto
     {
         public Guid Id { get; set; }
-        public required string CustomerName { get; set; }
+        public string CustomerName { get; set; }
         public InsuranceType InsuranceType { get; set; }
         public decimal CoverageAmount { get; set; }
         public ProposalStatus Status { get; set; }

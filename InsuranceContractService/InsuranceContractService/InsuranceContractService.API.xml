@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InsuranceContractService.Presentation</name>
+    </assembly>
+    <members>
+        <member name="T:InsuranceContractService.Presentation.Controllers.ContractsController">
+            <summary>
+            Controller para o gerênciamento de contratos
+            </summary>
+        </member>
+        <member name="M:InsuranceContractService.Presentation.Controllers.ContractsController.#ctor(InsuranceContractService.Application.Interfaces.ICreateContractUseCase)">
+            <summary>
+            Controller para o gerênciamento de contratos
+            </summary>
+        </member>
+        <member name="M:InsuranceContractService.Presentation.Controllers.ContractsController.CreateContract(System.Guid)">
+            <summary>
+            Cria uma contratação baseada em uma proposta aprovada
+            </summary>
+            <param name="proposalId">ID da proposta</param>
+            <returns>Detalhes da contratação</returns>
+        </member>
+        <member name="T:InsuranceContractService.Presentation.Extensions.ControllerExtensions">
+            <summary>
+            Extensões para configurar controllers personalizados na aplicação.
+            </summary>
+        </member>
+        <member name="M:InsuranceContractService.Presentation.Extensions.ControllerExtensions.AddCustomControllers(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adiciona controllers personalizados ao IServiceCollection, configurando filtros e opções JSON.
+            </summary>
+        </member>
+        <member name="T:InsuranceContractService.Presentation.Extensions.SecurityExtensions">
+            <summary>
+            Extensões para configurar segurança da aplicação, incluindo políticas de cookies e HSTS.
+            </summary>
+        </member>
+        <member name="M:InsuranceContractService.Presentation.Extensions.SecurityExtensions.AddCustomSecurity(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adiciona serviços de segurança personalizados, configurando políticas de cookies e HSTS.
+            </summary>
+        </member>
+        <member name="M:InsuranceContractService.Presentation.Extensions.SecurityExtensions.UseCustomSecurity(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Adiciona o middleware de segurança personalizado na pipeline da aplicação, ativando HSTS e política de cookies.
+            </summary>
+        </member>
+        <member name="T:InsuranceContractService.Presentation.Extensions.SwaggerExtensions">
+            <summary>
+            Extensões para configurar Swagger na aplicação, incluindo documentação e UI.
+            </summary>
+        </member>
+        <member name="M:InsuranceContractService.Presentation.Extensions.SwaggerExtensions.AddCustomSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adiciona serviços de Swagger personalizados à coleção de serviços, configurando documentação e UI.
+            </summary>
+        </member>
+        <member name="M:InsuranceContractService.Presentation.Extensions.SwaggerExtensions.UseCustomSwagger(Microsoft.AspNetCore.Builder.WebApplication)">
+            <summary>
+            Adiciona o middleware de Swagger à pipeline da aplicação, habilitando a UI no ambiente de desenvolvimento.
+            </summary>
+        </member>
+        <member name="T:InsuranceContractService.Presentation.Middlewares.ApiResponseExceptionFilterAttribute">
+            <summary>
+            Captura exceções da API e retorna respostas HTTP padronizadas.
+            </summary>
+        </member>
+        <member name="M:InsuranceContractService.Presentation.Middlewares.ApiResponseExceptionFilterAttribute.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            Chamado quando uma exceção é lançada durante o processamento de uma requisição
+            </summary>
+            <param name="context"></param>
+        </member>
+    </members>
+</doc>

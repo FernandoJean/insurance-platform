@@ -1,25 +1,43 @@
+using FluentMigrator.Runner;
+using InsuranceContractService.Application.Extensions;
+using InsuranceContractService.Infrastructure.Extensions;
+using InsuranceContractService.Infrastructure.Persistence;
+using InsuranceContractService.Infrastructure.Persistence.Exceptions;
+using InsuranceContractService.Presentation.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
+IServiceCollection services = builder.Services;
 
-// Add services to the container.
+services.AddCustomControllers();
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+services.AddCustomSecurity();
+
+var connectionString = ((IConfiguration)builder.Configuration)["ConnectionStrings:InsuranceContractDb"] ?? throw new InsuranceContractDbConnectionStringException();
+services.AddSingleton(sp => new DatabaseConnection(connectionString));
+
+var proposalApiUrl = builder.Configuration["ProposalApi:BaseUrl"] ?? throw new ProposalApiBaseUrlNotConfiguredException();
+services.AddProposalApiClient(proposalApiUrl);
+
+services.AddRepositories();
+services.AddCustomMigrations(connectionString);
+
+services.AddCustomSwagger();
+
+services.AddDomainUseCases();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+app.UseCustomSecurity();
+
+using (var scope = app.Services.CreateScope())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    var runner = scope.ServiceProvider.GetRequiredService<IMigrationRunner>();
+    runner.MigrateUp();
 }
 
+app.UseCustomSwagger();
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
 
-app.Run();
+await app.RunAsync();
