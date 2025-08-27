@@ -14,27 +14,23 @@
             Controller para o gerênciamento de propostas
             </summary>
         </member>
-        <member name="M:InsuranceQuoteService.Presentation.Controllers.ProposalsController.CreateProposal(InsuranceQuoteService.Domain.Dtos.Proposal.CreateProposalRequestDto,System.Threading.CancellationToken)">
+        <member name="M:InsuranceQuoteService.Presentation.Controllers.ProposalsController.CreateProposal(InsuranceQuoteService.Domain.Dtos.Proposal.CreateProposalRequestDto)">
             <summary> Inserir proposta </summary>
             <param name="createProposalRequestDto"> DTO de criação de proposta </param>
-            <param name="ctx"> Token de cancelamento </param>
         </member>
-        <member name="M:InsuranceQuoteService.Presentation.Controllers.ProposalsController.ListProposals(System.Int32,System.Int32,System.Threading.CancellationToken)">
+        <member name="M:InsuranceQuoteService.Presentation.Controllers.ProposalsController.ListProposals(System.Int32,System.Int32)">
             <summary> Obter todas as propostas </summary>
             <param name="pageIndex"> Índice da página </param>
             <param name="pageSize"> Quantidade de itens </param>
-            <param name="ctx"> Token de cancelamento </param>
         </member>
-        <member name="M:InsuranceQuoteService.Presentation.Controllers.ProposalsController.GetProposalById(System.Guid,System.Threading.CancellationToken)">
+        <member name="M:InsuranceQuoteService.Presentation.Controllers.ProposalsController.GetProposalById(System.Guid)">
             <summary> Consultar proposta </summary>
             <param name="id"> Id da proposta </param>
-            <param name="ctx"> Token de cancelamento </param>
         </member>
-        <member name="M:InsuranceQuoteService.Presentation.Controllers.ProposalsController.UpdateProposalStatus(System.Guid,InsuranceQuoteService.Domain.Enums.ProposalStatus,System.Threading.CancellationToken)">
+        <member name="M:InsuranceQuoteService.Presentation.Controllers.ProposalsController.UpdateProposalStatus(System.Guid,InsuranceQuoteService.Domain.Enums.ProposalStatus)">
             <summary> Alterar status da proposta </summary>
             <param name="id"> Id da proposta </param>
             <param name="newStatus"> Novo status da proposta </param>
-            <param name="ctx"> Token de cancelamento </param>
         </member>
         <member name="T:InsuranceQuoteService.Presentation.Extensions.ControllerExtensions">
             <summary>

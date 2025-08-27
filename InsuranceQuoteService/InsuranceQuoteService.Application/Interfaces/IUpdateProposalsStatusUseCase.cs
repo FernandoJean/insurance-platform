@@ -4,6 +4,6 @@ namespace InsuranceQuoteService.Application.Interfaces
 {
     public interface IUpdateProposalsStatusUseCase
     {
-        Task ExecuteAsync(Guid id, ProposalStatus newStatus, CancellationToken ctx);
+        Task ExecuteAsync(Guid id, ProposalStatus newStatus);
     }
 }

@@ -4,6 +4,6 @@ namespace InsuranceQuoteService.Application.Interfaces
 {
     public interface IGetProposalByIdUseCase
     {
-        Task<ProposalResponseDto?> ExecuteAsync(Guid id, CancellationToken ctx);
+        Task<ProposalResponseDto?> ExecuteAsync(Guid id);
     }
 }

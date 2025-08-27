@@ -6,12 +6,12 @@ namespace InsuranceQuoteService.Domain.Interfaces
 {
     public interface IProposalRepository
     {
-        Task AddAsync(Proposal proposal, CancellationToken ctx);
+        Task AddAsync(Proposal proposal);
 
-        Task<Proposal?> GetByIdAsync(Guid id, CancellationToken ctx);
+        Task<Proposal?> GetByIdAsync(Guid id);
 
-        Task<(long, IEnumerable<Proposal>)> ListAsync(Pagination pagination, CancellationToken ctx);
+        Task<(long, IEnumerable<Proposal>)> ListAsync(Pagination pagination);
 
-        Task<int> UpdateStatusAsync(Guid id, ProposalStatus newStatus, CancellationToken ctx);
+        Task<int> UpdateStatusAsync(Guid id, ProposalStatus newStatus);
     }
 }

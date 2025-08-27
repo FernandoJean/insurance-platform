@@ -4,6 +4,6 @@ namespace InsuranceQuoteService.Application.Interfaces
 {
     public interface ICreateProposalUseCase
     {
-        Task<ProposalResponseDto> ExecuteAsync(CreateProposalRequestDto createProposalRequestDto, CancellationToken ctx);
+        Task<ProposalResponseDto> ExecuteAsync(CreateProposalRequestDto createProposalRequestDto);
     }
 }

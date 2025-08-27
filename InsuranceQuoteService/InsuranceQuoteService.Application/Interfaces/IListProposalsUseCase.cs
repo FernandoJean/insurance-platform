@@ -5,6 +5,6 @@ namespace InsuranceQuoteService.Application.Interfaces
 {
     public interface IListProposalsUseCase
     {
-        Task<PageModel<ProposalResponseDto>> ExecuteAsync(Pagination pagination, CancellationToken ctx);
+        Task<PageModel<ProposalResponseDto>> ExecuteAsync(Pagination pagination);
     }
 }

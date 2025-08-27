@@ -10,7 +10,7 @@ namespace InsuranceQuoteService.Application.UseCases
     {
         private readonly IProposalRepository _proposalRepository = proposalRepository;
 
-        public async Task<ProposalResponseDto> ExecuteAsync(CreateProposalRequestDto createProposalRequestDto, CancellationToken ctx)
+        public async Task<ProposalResponseDto> ExecuteAsync(CreateProposalRequestDto createProposalRequestDto)
         {
             var proposal = new Proposal
             {
@@ -22,7 +22,7 @@ namespace InsuranceQuoteService.Application.UseCases
                 CreatedAt = DateTime.UtcNow
             };
 
-            await _proposalRepository.AddAsync(proposal, ctx);
+            await _proposalRepository.AddAsync(proposal);
 
             return new ProposalResponseDto
             {

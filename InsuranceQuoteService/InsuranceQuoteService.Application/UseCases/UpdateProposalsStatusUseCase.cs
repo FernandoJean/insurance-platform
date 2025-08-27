@@ -9,9 +9,9 @@ namespace InsuranceQuoteService.Application.UseCases
     {
         private readonly IProposalRepository _proposalRepository = proposalRepository;
 
-        public async Task ExecuteAsync(Guid id, ProposalStatus newStatus, CancellationToken ctx)
+        public async Task ExecuteAsync(Guid id, ProposalStatus newStatus)
         {
-            var rowsAffected = await _proposalRepository.UpdateStatusAsync(id, newStatus, ctx);
+            var rowsAffected = await _proposalRepository.UpdateStatusAsync(id, newStatus);
 
             if (rowsAffected == 0)
             {

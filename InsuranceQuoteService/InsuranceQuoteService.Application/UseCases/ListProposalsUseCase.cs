@@ -9,9 +9,9 @@ namespace InsuranceQuoteService.Application.UseCases
     {
         private readonly IProposalRepository _proposalRepository = proposalRepository;
 
-        public async Task<PageModel<ProposalResponseDto>> ExecuteAsync(Pagination pagination, CancellationToken ctx)
+        public async Task<PageModel<ProposalResponseDto>> ExecuteAsync(Pagination pagination)
         {
-            var (count, page) = await _proposalRepository.ListAsync(pagination, ctx);
+            var (count, page) = await _proposalRepository.ListAsync(pagination);
 
             var dtoPage = page.Select(p => new ProposalResponseDto
             {

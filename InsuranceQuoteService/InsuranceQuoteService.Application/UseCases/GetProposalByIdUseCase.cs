@@ -9,9 +9,9 @@ namespace InsuranceQuoteService.Application.UseCases
     {
         private readonly IProposalRepository _proposalRepository = proposalRepository;
 
-        public async Task<ProposalResponseDto?> ExecuteAsync(Guid id, CancellationToken ctx)
+        public async Task<ProposalResponseDto?> ExecuteAsync(Guid id)
         {
-            var proposal = await _proposalRepository.GetByIdAsync(id, ctx) ?? throw new ProposalIdNotFoundException(id);
+            var proposal = await _proposalRepository.GetByIdAsync(id) ?? throw new ProposalIdNotFoundException(id);
 
             return new ProposalResponseDto
             {
