@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\InsuranceQuoteService.Application\InsuranceQuoteService.Application.csproj" />
     <ProjectReference Include="..\InsuranceQuoteService.Domain\InsuranceQuoteService.Domain.csproj" />
     <ProjectReference Include="..\InsuranceQuoteService.Infrastructure\InsuranceQuoteService.Infrastructure.csproj" />
   </ItemGroup>

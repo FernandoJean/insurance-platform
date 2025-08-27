@@ -1,9 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using InsuranceQuoteService.Domain.Exceptions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Net;
 
 namespace InsuranceQuoteService.Presentation.Middlewares
 {
+    /// <summary>
+    /// Captura exceções da API e retorna respostas HTTP padronizadas.
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
     public sealed class ApiResponseExceptionFilterAttribute : ExceptionFilterAttribute
     {
         /// <summary>
@@ -15,29 +20,14 @@ namespace InsuranceQuoteService.Presentation.Middlewares
             var exception = context.Exception;
             ObjectResult result;
 
-            var conflictExceptions = new HashSet<Type>
-            {
-            };
-
             var notFoundExceptions = new HashSet<Type>
             {
+                typeof(ProposalIdNotFoundException)
             };
 
-            var UnprocessableEntity = new HashSet<Type>
-            {
-            };
-
-            if (conflictExceptions.Contains(exception.GetType()))
-            {
-                result = CreateErrorResponse(exception, (int)HttpStatusCode.Conflict);
-            }
-            else if (notFoundExceptions.Contains(exception.GetType()))
+            if (notFoundExceptions.Contains(exception.GetType()))
             {
                 result = CreateErrorResponse(exception, (int)HttpStatusCode.NotFound);
-            }
-            else if (UnprocessableEntity.Contains(exception.GetType()))
-            {
-                result = CreateErrorResponse(exception, (int)HttpStatusCode.UnprocessableEntity);
             }
             else
             {

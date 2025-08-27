@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsuranceQuoteService.Infra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsuranceQuoteService.Domain", "InsuranceQuoteService.Domain\InsuranceQuoteService.Domain.csproj", "{8874515E-F6F8-47ED-830B-B3B84AA5E552}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsuranceQuoteService.Application", "InsuranceQuoteService.Application\InsuranceQuoteService.Application.csproj", "{F291CD10-5B43-45D9-8FF5-660323AD00A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{8874515E-F6F8-47ED-830B-B3B84AA5E552}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8874515E-F6F8-47ED-830B-B3B84AA5E552}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8874515E-F6F8-47ED-830B-B3B84AA5E552}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F291CD10-5B43-45D9-8FF5-660323AD00A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F291CD10-5B43-45D9-8FF5-660323AD00A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F291CD10-5B43-45D9-8FF5-660323AD00A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F291CD10-5B43-45D9-8FF5-660323AD00A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using InsuranceQuoteService.Infrastructure.Persistence.Resources;
+﻿using InsuranceQuoteService.Infrastructure.Persistence.Resources;
+using System.ComponentModel.DataAnnotations;
 
 namespace InsuranceQuoteService.Infrastructure.Persistence.Exceptions
 {
