@@ -1,4 +1,4 @@
-# Insurance Quote Service
+# Insurance Platform
 
 Este projeto foi desenvolvido como solução para o desafio de gerenciamento e atualização de propostas de seguro utilizando microserviços de forma segura e escalável.
 
