@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22 d17.14
+VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsuranceQuoteService.Presentation", "InsuranceQuoteService\InsuranceQuoteService.Presentation.csproj", "{F8634E10-3316-4302-8E63-AB365D7CE101}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsuranceQuoteService.Domain", "InsuranceQuoteService.Domain\InsuranceQuoteService.Domain.csproj", "{8874515E-F6F8-47ED-830B-B3B84AA5E552}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsuranceQuoteService.Application", "InsuranceQuoteService.Application\InsuranceQuoteService.Application.csproj", "{F291CD10-5B43-45D9-8FF5-660323AD00A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsuranceQuoteService.UnitTests", "InsuranceQuoteService.UnitTests\InsuranceQuoteService.UnitTests.csproj", "{92DEE867-ECF9-47A7-93BA-C6CF98B8384F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F291CD10-5B43-45D9-8FF5-660323AD00A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F291CD10-5B43-45D9-8FF5-660323AD00A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F291CD10-5B43-45D9-8FF5-660323AD00A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92DEE867-ECF9-47A7-93BA-C6CF98B8384F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92DEE867-ECF9-47A7-93BA-C6CF98B8384F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92DEE867-ECF9-47A7-93BA-C6CF98B8384F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92DEE867-ECF9-47A7-93BA-C6CF98B8384F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

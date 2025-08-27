@@ -11,7 +11,7 @@ namespace InsuranceQuoteService.Domain.Exceptions
     public sealed class ProposalIdNotFoundException(Guid id) : ValidationException(string.Format(ExceptionMessages.ProposalIdNotFoundException, id))
     {
         [JsonPropertyName("id")]
-        public Guid Id { get; }
+        public Guid Id { get; } = id;
 
         public static string SerializeToJson(ProposalIdNotFoundException exception)
         {
