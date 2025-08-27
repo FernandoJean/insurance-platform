@@ -1,0 +1,53 @@
+workspace "Plataforma de Seguros" "Insurance Quote Service" {
+
+    !identifiers hierarchical
+
+    model {
+        agent = person "Agente de Seguros" "Agente que gerencia propostas e contratos"
+        insurancePlatform = softwareSystem "Insurance Platform" "Sistema de gerenciamento de propostas e contratos de seguro"{
+            insuranceQuote = container "Insurance Quote" "Microsserviço que gerencia propostas de seguro" {
+                technology "C#/.NET 8, API REST"
+            }
+            
+            insuranceContract = container "Insurance Contract" "Microsserviço que cadastra propostas aprovadas" {
+                technology "C#/.NET 8, API REST"
+            }
+            
+            postgresDb = container "PostgreSQL" "Banco de dados relacional" {
+                technology "PostgreSQL"
+                tags "Database"
+            }
+        }
+        
+        agent -> insurancePlatform.insuranceQuote "Gerencia propostas" [REST/HTTP]
+        agent -> insurancePlatform.insuranceContract "Cadastra propostas aprovadas" [REST/HTTP]
+        insurancePlatform.insuranceContract -> insurancePlatform.insuranceQuote "Verifica status da proposta" [REST/HTTP]
+        insurancePlatform.insuranceQuote -> insurancePlatform.postgresDb "Leitura e gravação de propostas" [TLS]
+        insurancePlatform.insuranceContract -> insurancePlatform.postgresDb "Gravação de contratos" [TLS]
+    }
+
+    views {
+        systemContext insurancePlatform "Diagram1" {
+            include *
+            autolayout lr
+        }
+        
+        container insurancePlatform "Diagram2"{
+            include *
+            autolayout lr
+        }
+        
+        styles {
+            element "Database" {
+                shape "cylinder"
+            }
+        }
+
+        theme default
+    }
+
+    configuration {
+        scope softwaresystem
+    }
+
+}

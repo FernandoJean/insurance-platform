@@ -109,3 +109,24 @@ Abra um terminal na raiz do projeto desejado e execute o comando abaixo para exe
 ```bash
 dotnet test
 ```
+
+## Modelo C4
+
+Neste projeto foi desenvolvido o **modelo C4** para o desafio, seguindo os níveis: 
+
+- **System Context (Level 1):** Detalha de forma abrangente o contexto.  
+- **Container Diagram (Level 2):** Detalha os containers internos, incluindo os microserviços `InsuranceQuote` e `InsuranceContract`, e a comunicação com o banco de dados PostgreSQL.  
+
+O código utilizado para gerar os diagramas foi desenvolvido em **Structurizr DSL** e está disponível no arquivo:  
+`docs/doc-c4.txt`
+
+As imagens dos diagramas gerados estão disponíveis na pasta:  
+`docs/`
+
+## Diagramas C4
+
+### Nível 1 - System Context
+![Diagrama C4 - Level 1](./docs/structurizr-Diagram1.png)
+
+### Nível 2 - Container
+![Diagrama C4 - Level 2](./docs/structurizr-Diagram2.png)
